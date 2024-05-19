@@ -9,9 +9,9 @@ import (
 
 func DefaultLogConfig() *log.Config {
 	return &log.Config{
-		AccessLogType: log.LogType_None,
+		AccessLogType: log.LogType_Console,
 		ErrorLogType:  log.LogType_Console,
-		ErrorLogLevel: clog.Severity_Warning,
+		ErrorLogLevel: clog.Severity_Debug,
 	}
 }
 
