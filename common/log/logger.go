@@ -1,5 +1,15 @@
 package log
 
+/*
+#include <stdio.h>
+#include <string.h>
+#include <os/log.h>
+void XrayLogger(const char *msg) {
+	os_log(OS_LOG_DEFAULT, "[Xray MSG]: %{public}s", msg);
+}
+*/
+import "C"
+
 import (
 	"io"
 	"log"
@@ -120,7 +130,8 @@ type consoleLogWriter struct {
 }
 
 func (w *consoleLogWriter) Write(s string) error {
-	w.logger.Print(s)
+	// w.logger.Print(s)
+	C.XrayLogger(C.CString(s))
 	return nil
 }
 
